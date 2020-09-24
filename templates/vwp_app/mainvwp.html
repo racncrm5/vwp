@@ -1,0 +1,7 @@
+{% extends "vwp_app/base.html" %}
+{% load my_extras %}
+{%block body_block %}
+    <h1>Welcome to Vacations Wealth Partners</h1>
+    <h1>{{ main_temp|upper }}</h1>
+    <h2>{{ salute|remove_str:"Loser" }}</h2>
+{% endblock %}

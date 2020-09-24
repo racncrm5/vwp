@@ -1,0 +1,8 @@
+{% extends "vwp_app/base.html" %}
+{%block body_block %}
+      <form class="" method="POST">
+          {{ adduser.as_p }}
+          {% csrf_token %}
+          <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+{% endblock %}

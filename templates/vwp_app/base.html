@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+{% load my_extras %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/vwp.css" %}"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <!--  Code for the hamburger icon-->
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="container">
+      <div class="collapse nav navbar-nav navbar-collapse">
+        <ul>
+          <a href="{% url 'vwp_app:mainvwp' %}" class="navbar-link">Main Page</a>
+          <a href="{% url 'vwp_app:adduser' %}" class="navbar-link">Add User</a>
+          <a href="{% url 'vwp_app:registration' %}" class= "navbar-link">Registration</a>
+          <a href="" class="btn button btn-warning navbar-link">Queries</a>
+
+          {% if user.is_authenticated %}
+          <li><a class="navbar-link" href="{ url 'vwp_app:user_logout' %}">Log Out</a></li>
+          {% else %}
+          <li><a class="navbar-link" href="{ url 'vwp_app:user_login' %}">Log In</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+    </div> <!--container -->
+    </nav> <!-- navbar -->
+    <div class="container">
+    <img src="{% static "images/VWP_LOGO.png" %}" alt="ou oh">
+      {% block body_block %}
+
+      {% endblock %}
+      </div>
+  </body>
+</html>
